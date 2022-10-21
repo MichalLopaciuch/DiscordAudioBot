@@ -38,7 +38,8 @@ async def play(ctx, *, search: str) -> None:
     audio_source = Downloader.download(search)
     if audio_source is not None:
         await ctx.send(f'{search} has been added to the queue')
-        await ctx.voice_client.play(FFmpegPCMAudio(audio_source))
+        await ctx.voice_client.play(FFmpegPCMAudio(
+            audio_source.get('entries')[0].get('original_url')))
     else:
         await ctx.send(f'no relevant results found for {search}')
 

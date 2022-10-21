@@ -5,7 +5,8 @@ import logging
 
 def main() -> None:
     handler = logging.FileHandler(filename='discord_bot.log', encoding='utf-8', mode='a')
-    bot.run(getenv('BOT_TOKEN', None), log_handler=handler, log_level=logging.INFO)
+    # handler = logging.Handler()
+    bot.run(getenv('BOT_TOKEN', None), log_handler=handler, log_level=logging.DEBUG)
 
 
 if __name__ == '__main__':
